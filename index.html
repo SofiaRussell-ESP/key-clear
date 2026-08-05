@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-skin="studio">
+<html lang="en" data-skin="term">
 <head>
 <meta charset="UTF-8">
 <title>Key Clear</title>
@@ -126,7 +126,12 @@ pre {
 }
 @media (max-width: 1100px) { .console { grid-template-columns: 1fr; } }
 
-.left-col { display: flex; flex-direction: column; gap: var(--sp-4); }
+.left-col {
+  display: flex; flex-direction: column; gap: var(--sp-4);
+  position: sticky; top: var(--sp-4); align-self: start;
+  max-height: calc(100vh - 2 * var(--sp-4)); overflow-y: auto;
+}
+@media (max-width: 1100px) { .left-col { position: static; max-height: none; overflow-y: visible; } }
 
 .panel {
   background: var(--bg-raise); border: var(--border-w) solid var(--line);
